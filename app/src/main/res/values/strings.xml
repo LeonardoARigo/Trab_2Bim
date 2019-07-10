@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Trab_2Bim</string>
+    <string-array name="spinner1">
+        <item>ADM</item>
+        <item>INFO</item>
+    </string-array>
+</resources>
