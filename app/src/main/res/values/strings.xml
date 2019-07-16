@@ -4,4 +4,10 @@
         <item>ADM</item>
         <item>INFO</item>
     </string-array>
+    <string-array name="valores_list_view">
+        <item>IFPR - Campus Pinhais</item>
+        <item>IFPR - Campus Colombo</item>
+        <item>IFPR - Campus Curitiba</item>
+    </string-array>
+
 </resources>
