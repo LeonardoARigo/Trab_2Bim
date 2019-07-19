@@ -16,6 +16,13 @@ public class Main4Activity extends AppCompatActivity {
     Integer curitiba = 0;
     Integer colombo = 0;
 
+    public void fazertoast(String texto){
+        Toast.makeText(getApplicationContext(),
+                texto,
+                Toast.LENGTH_SHORT).show();
+
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,21 +36,16 @@ public class Main4Activity extends AppCompatActivity {
                 switch (position) {
                     case 0:
                         pinhais++;
-                        Toast.makeText(getApplicationContext(),
-                                pinhais.toString() + " alunos em Pinhais",
-                                Toast.LENGTH_SHORT).show();
+                        fazertoast(pinhais.toString() + " alunos em pinhais");
                         break;
                     case 1:
                         colombo++;
-                        Toast.makeText(getApplicationContext(),
-                                colombo.toString() + " alunos em Colombo",
-                                Toast.LENGTH_SHORT).show();
+                        fazertoast(colombo.toString() + " alunos em Colombo");
+
                         break;
                     case 2:
                         curitiba++;
-                        Toast.makeText(getApplicationContext(),
-                                curitiba.toString() + " alunos em Curitiba",
-                                Toast.LENGTH_SHORT).show();
+                        fazertoast(curitiba.toString() + " alunos em Curitiba");
                         break;
                 }
             }

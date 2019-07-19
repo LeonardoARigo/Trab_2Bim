@@ -50,6 +50,41 @@ public class Main2Activity extends AppCompatActivity {
         });
     }
 
+    public void exibirAlertDialog (){
+        AlertDialog.Builder builderAlert = new AlertDialog.Builder(this);
+        builderAlert.setTitle("Confirmação");
+        builderAlert.setMessage("Confirma o cadastro do aluno?");
+
+        DialogInterface.OnClickListener botaoSim = new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick (DialogInterface dialog,int which) {
+                intent.putExtras(pacote);
+                startActivity(intent);
+            }
+        };
+        builderAlert.setPositiveButton( "Sim", botaoSim);
+        builderAlert.create().show();
+            }
+
+    public void notificar(){
+        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.O) {
+            NotificationChannel channel =
+                    new NotificationChannel("my_channel_id",
+                            "my_channel",
+                            NotificationManager.IMPORTANCE_DEFAULT);
+            NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+            nm.createNotificationChannel(channel);
+        }
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this,"my_channel_id");
+        builder.setSmallIcon(R.drawable.ic_launcher_background);
+        builder.setContentTitle("Cadastro");
+        builder.setContentText("Aluno Cadastrado!");
+        builder.setPriority(NotificationCompat.PRIORITY_DEFAULT);
+        NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        nm.notify(123456, builder.build());
+    }
+
     public void onRadioButtonClicked(View view) {
         RadioButton radioButton =(RadioButton ) view;
         int  id = radioButton.getId();
@@ -64,57 +99,10 @@ public class Main2Activity extends AppCompatActivity {
     }
 
     public void irParaTerceiraTela (View view){
-
         String aluno = ((TextView)findViewById(R.id.editText1)).getText().toString();
         pacote.putString("Nome",aluno);
-
-        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.O) {
-            NotificationChannel channel =
-                    new NotificationChannel("my_channel_id",
-                            "my_channel",
-                            NotificationManager.IMPORTANCE_DEFAULT);
-
-            NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-            nm.createNotificationChannel(channel);
-        }
-
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this,"my_channel_id");
-        builder.setSmallIcon(R.drawable.ic_launcher_background);
-        builder.setContentTitle("Cadastro");
-        builder.setContentText("Aluno Cadastrado!");
-        builder.setPriority(NotificationCompat.PRIORITY_DEFAULT);
-        NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        nm.notify(123456, builder.build());
-        
-        
-        AlertDialog.Builder builderAlert = new AlertDialog.Builder(this);
-        builderAlert.setTitle("Confirmação");
-        builderAlert.setMessage("Confirma o cadastro do aluno?");
-
-        DialogInterface.OnClickListener btnSim = new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick (DialogInterface dialog,int which) {
-                intent.putExtras(pacote);
-                startActivity(intent);
-            }
-        };
-
-        DialogInterface.OnClickListener btnNao = new DialogInterface.OnClickListener(){
-            @Override
-            public void onClick(DialogInterface dialog,int which) {
-            }
-        };
-
-        builderAlert.setPositiveButton( "Sim", btnSim);
-        builderAlert.setNegativeButton("Não",btnNao);
-        builderAlert.create().show();
-
-
-
-
-
-
-
+        notificar();
+        exibirAlertDialog();
     }
 
 }
