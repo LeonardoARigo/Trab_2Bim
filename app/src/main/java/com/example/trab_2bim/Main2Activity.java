@@ -26,6 +26,8 @@ public class Main2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
+
         intent = new Intent(this, Main3Activity.class);
         Spinner spinner = (Spinner)findViewById(R.id.spinner1);
 
@@ -45,7 +47,6 @@ public class Main2Activity extends AppCompatActivity {
 
             }
             public void onNothingSelected(AdapterView<?> parentView) {
-
             }
         });
     }
@@ -86,7 +87,7 @@ public class Main2Activity extends AppCompatActivity {
     }
 
     public void onRadioButtonClicked(View view) {
-        RadioButton radioButton =(RadioButton ) view;
+        RadioButton radioButton =(RadioButton) view;
         int  id = radioButton.getId();
         switch(id) {
             case R.id.manha:
@@ -99,6 +100,7 @@ public class Main2Activity extends AppCompatActivity {
     }
 
     public void irParaTerceiraTela (View view){
+
         String aluno = ((TextView)findViewById(R.id.editText1)).getText().toString();
         pacote.putString("Nome",aluno);
         notificar();

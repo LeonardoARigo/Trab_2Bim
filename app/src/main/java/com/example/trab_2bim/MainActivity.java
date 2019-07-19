@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
     public void mudardetela (View view){
         Intent intent = new Intent(this, Main2Activity.class);
         startActivity(intent);
