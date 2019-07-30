@@ -11,13 +11,13 @@ public class PrimeiraTela extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.Primeira_Tela);
 
 
     }
 
     public void mudardetela (View view){
-        Intent intent = new Intent(this, TelaDoFormulario.class);
+        Intent intent = new Intent(this, SelecaoDoCampus.class);
         startActivity(intent);
     }
 

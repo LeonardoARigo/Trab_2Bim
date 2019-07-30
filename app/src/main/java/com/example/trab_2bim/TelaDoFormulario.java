@@ -19,17 +19,16 @@ import android.widget.TextView;
 
 public class TelaDoFormulario extends AppCompatActivity {
 
-    Bundle pacote = new Bundle();
+    Bundle pacote;
     Intent intentParaATelaDeConfirmação;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.Tela_Do_Formulario);
 
-
-
+        pacote = getIntent().getExtras();
 
         intentParaATelaDeConfirmação = new Intent(this, TelaDeConfirmacao.class);
         Spinner spinner = (Spinner)findViewById(R.id.spinner1);
