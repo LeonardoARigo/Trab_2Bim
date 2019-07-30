@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-public class Main3Activity extends AppCompatActivity {
+public class TelaDeConfirmacao extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,11 +15,11 @@ public class Main3Activity extends AppCompatActivity {
         setContentView(R.layout.activity_main3);
 
         Intent intent = getIntent();
-        Bundle bundle = intent.getExtras();
+        Bundle pacote = intent.getExtras();
 
-        String curso = bundle.getString("Curso");
-        String nome =  bundle.getString("Nome");
-        String turno = bundle.getString("Turno");
+        String curso = pacote.getString("Curso");
+        String nome =  pacote.getString("Nome");
+        String turno = pacote.getString("Turno");
 
         TextView cursoEscolhido = (TextView) findViewById(R.id.mostrar_curso);
         cursoEscolhido.setText(curso);
@@ -35,7 +35,7 @@ public class Main3Activity extends AppCompatActivity {
 
 
     public void mudardetela (View view){
-        Intent intent = new Intent(this, Main4Activity.class);
+        Intent intent = new Intent(this, SelecaoDoCampus.class);
         startActivity(intent);
     }
 }

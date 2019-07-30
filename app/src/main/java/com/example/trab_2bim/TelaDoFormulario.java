@@ -17,10 +17,11 @@ import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-public class Main2Activity extends AppCompatActivity {
+public class TelaDoFormulario extends AppCompatActivity {
 
     Bundle pacote = new Bundle();
-    Intent intent;
+    Intent intentParaATelaDeConfirmação;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +29,9 @@ public class Main2Activity extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
 
 
-        intent = new Intent(this, Main3Activity.class);
+
+
+        intentParaATelaDeConfirmação = new Intent(this, TelaDeConfirmacao.class);
         Spinner spinner = (Spinner)findViewById(R.id.spinner1);
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -59,8 +62,8 @@ public class Main2Activity extends AppCompatActivity {
         DialogInterface.OnClickListener botaoSim = new DialogInterface.OnClickListener() {
             @Override
             public void onClick (DialogInterface dialog,int which) {
-                intent.putExtras(pacote);
-                startActivity(intent);
+                intentParaATelaDeConfirmação.putExtras(pacote);
+                startActivity(intentParaATelaDeConfirmação);
             }
         };
         builderAlert.setPositiveButton( "Sim", botaoSim);
@@ -86,7 +89,7 @@ public class Main2Activity extends AppCompatActivity {
         nm.notify(123456, builder.build());
     }
 
-    public void onRadioButtonClicked(View view) {
+    public void escolhaDoTurno(View view) {
         RadioButton radioButton =(RadioButton) view;
         int  id = radioButton.getId();
         switch(id) {

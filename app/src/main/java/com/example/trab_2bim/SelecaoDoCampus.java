@@ -11,15 +11,19 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Main4Activity extends AppCompatActivity {
-    Integer pinhais = 0;
-    Integer curitiba = 0;
-    Integer colombo = 0;
+public class SelecaoDoCampus extends AppCompatActivity {
 
-    public void fazertoast(String texto){
+ Intent intent;
+ Bundle pacote = new Bundle();
+ Integer pinhais;
+ Integer colombo;
+ Integer curitiba;
+
+
+    public void fazerToast(String texto){
         Toast.makeText(getApplicationContext(),
-                texto,
-                Toast.LENGTH_SHORT).show();
+               texto,
+               Toast.LENGTH_SHORT).show();
 
     }
 
@@ -27,6 +31,7 @@ public class Main4Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main4);
+        intent = new Intent(this, TelaDoFormulario.class);
 
         ListView listViewDaTela = findViewById(R.id.campi);
         listViewDaTela.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -35,20 +40,27 @@ public class Main4Activity extends AppCompatActivity {
 
                 switch (position) {
                     case 0:
-                        pinhais++;
-                        fazertoast(pinhais.toString() + " alunos em pinhais");
+                        fazerToast( "Cadastrado em pinhais");
+
+
                         break;
                     case 1:
-                        colombo++;
-                        fazertoast(colombo.toString() + " alunos em Colombo");
+                        fazerToast( "Cadastrado em Colombo");
 
                         break;
                     case 2:
-                        curitiba++;
-                        fazertoast(curitiba.toString() + " alunos em Curitiba");
+                        fazerToast( "Cadastrado em Curitiba");
+
                         break;
                 }
             }
         });
     }
+
+    public void mudardetela (View view){
+               startActivity(intent);
+    }
+
 }
+
+
