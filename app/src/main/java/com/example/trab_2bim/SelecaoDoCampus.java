@@ -57,7 +57,7 @@ public class SelecaoDoCampus extends AppCompatActivity {
                     case 1:
                         fazerToast( "Cadastrado em Colombo");
                         colombo++;
-                        colocarNoPacote(pinhais,colombo,curitiba)
+                        colocarNoPacote(pinhais,colombo,curitiba);
 
                         break;
                     case 2:
